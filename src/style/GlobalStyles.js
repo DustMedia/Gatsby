@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
    
    html {
       font-family: Montserrat;
-      background-color: ${({ theme: { gray } }) => gray[14]}; 
+      background-color: ${({ theme: { gray } }) => gray[15]}; 
 
       input, select, textarea, label{
          font-family: Montserrat;
@@ -145,7 +145,7 @@ const GlobalStyles = createGlobalStyle`
 
    button {
       background: none;
-      color: ${({ theme: { gray } }) => gray[14]};
+      color: ${({ theme: { gray } }) => gray[0]};
       border: none;
       padding: 0;
       cursor: pointer;
@@ -171,7 +171,7 @@ const GlobalStyles = createGlobalStyle`
    }
 
    a {
-      color: ${({ theme: { gray } }) => gray[14]};
+      color: ${({ theme: { gray } }) => gray[0]};
       text-decoration: none;
    }
 

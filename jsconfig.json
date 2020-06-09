@@ -8,5 +8,5 @@
     "node_modules/hooks-lib",
     "node_modules/components-react-lib/dist"
   ],
-  "exclude": ["node_modules/hooks-lib/dist", "node_modules/hooks-lib/src"]
+  "exclude": ["node_modules/hooks-lib/src"]
 }

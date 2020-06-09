@@ -1,10 +1,41 @@
 // Components==============
 import React from "react";
 import styled from "styled-components";
+import Socials from "../../micro-components/Socials";
+import { Container } from "../../style/Mixins";
 // =========================
 
-const FooterWrap = styled.div``;
+const Bar = styled.div`
+  height: 1px;
+  background: ${({ theme: { gray } }) => gray[0]};
+  opacity: 0.6;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: ${({ theme: { spacing } }) => spacing[4]};
+`;
+
+const FooterWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const P = styled.p`
+  margin-top: ${({ theme: { spacing } }) => spacing[5]};
+  margin-bottom: ${({ theme: { spacing } }) => spacing[9]};
+  ${({ theme: { fontSize } }) => fontSize.s}
+  text-align: center;
+`;
 
 export default function Footer() {
-  return <FooterWrap></FooterWrap>;
+  return (
+    <Container>
+      <FooterWrap>
+        <Bar />
+        <Socials />
+        <P>© 2020 Dust Media | Alle rechten voorbehouden.</P>
+      </FooterWrap>
+    </Container>
+  );
 }

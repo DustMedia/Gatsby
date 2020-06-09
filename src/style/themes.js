@@ -15,6 +15,7 @@ export const Variables = {
     "rgba(77, 77, 77, 1)",
     "rgba(54, 54, 54, 1)",
     "rgba(33, 33, 33, 1)",
+    "rgba(17, 17, 17, 1)",
   ],
   primary: "#E1C598",
   shadow: {
@@ -62,6 +63,7 @@ export const Variables = {
   },
   fontSize: {
     s: `
+    font-weight: 400;
     font-size: 15px;
     
     @media screen and (min-width: 768px) {
@@ -93,6 +95,7 @@ export const Variables = {
     `,
     h3: `
     font-size: 24px;
+    font-weight: 700;
     
     @media screen and (min-width: 768px) {
      font-size: 28px; 
@@ -100,6 +103,7 @@ export const Variables = {
     `,
     h2: `
     font-size: 27.5px;
+    font-weight: 700;
     
     @media screen and (min-width: 768px) {
      font-size: 40px; 
@@ -107,9 +111,10 @@ export const Variables = {
     `,
     h1: `
     font-size: 35px;
+    font-weight: 700;
     
     @media screen and (min-width: 768px) {
-     font-size: 50; 
+     font-size: 50px; 
     }
     `,
   },

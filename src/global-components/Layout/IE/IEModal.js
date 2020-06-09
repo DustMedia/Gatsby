@@ -11,7 +11,7 @@ const Shade = styled.div`
   height: 100vh;
   width: 100vw;
   z-index: 300;
-  background-color: ${({ theme: { gray } }) => gray[14].replace("1)", "0.8)")};
+  background-color: ${({ theme: { gray } }) => gray[15].replace("1)", "0.8)")};
   top: 0;
   left: 0;
   transition: 0.5s;

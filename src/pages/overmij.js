@@ -4,11 +4,11 @@ import React from "react";
 import Head from "../global-components/Layout/Head";
 // =========================
 
-export default function Index({ data }) {
+export default function Overmij({ data }) {
   return (
     <>
       <Head
-        title="Home"
+        title="Over mij"
         description={data?.sanitySeo?.description}
         keywords={data?.sanitySeo?.keywords}
       />
@@ -17,8 +17,8 @@ export default function Index({ data }) {
 }
 
 export const query = graphql`
-  query homeQuery {
-    sanitySeo(page: { eq: "Home" }) {
+  query overMijQuery {
+    sanitySeo(page: { eq: "Over mij" }) {
       description
       keywords
     }
