@@ -1,8 +1,7 @@
 // Components==============
 import { motion, usePresence } from "framer-motion";
 import { Link } from "gatsby";
-import { useScrollFreeze } from "hooks-lib";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { Container } from "../../style/Mixins";
 import { NavContext } from "../Layout/Layout";
@@ -53,8 +52,13 @@ const A = ({ children, to }) => {
 };
 
 export default function Menu() {
-  useScrollFreeze();
   const [isPresent] = usePresence();
+
+  useEffect(() => {
+    isPresent
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "initial");
+  }, [isPresent]);
 
   return (
     <Wrapper

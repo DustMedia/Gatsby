@@ -19,11 +19,12 @@ const FooterWrap = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: ${({ theme: { spacing } }) => spacing[9]};
 `;
 
 const P = styled.p`
   margin-top: ${({ theme: { spacing } }) => spacing[5]};
-  margin-bottom: ${({ theme: { spacing } }) => spacing[9]};
+  margin-bottom: ${({ theme: { spacing } }) => spacing[6]};
   ${({ theme: { fontSize } }) => fontSize.s}
   text-align: center;
 `;

@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const Flex = styled.div`
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: space-between;
   width: 130px;
 `;

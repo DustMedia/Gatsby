@@ -11,7 +11,7 @@ import IEWarning from "./IE/IEWarning";
 // =========================
 
 const Content = styled.div`
-  min-height: 80vh;
+  min-height: 75vh;
 `;
 
 export const NavContext = createContext();
