@@ -49,17 +49,17 @@ export default function Video({ video }) {
   const performStateChange = () => {
     setVideoState((prev) => ({
       ...prev,
-      mute: false,
-      volume: 1,
+      playing: false,
     }));
     videoState.ref.current.seekTo(0, "seconds");
 
     setTimeout(() => {
       setVideoState((prev) => ({
         ...prev,
-        playing: false,
+        mute: false,
+        volume: 1,
       }));
-    }, 10);
+    }, 100);
   };
 
   useEffect(() => {

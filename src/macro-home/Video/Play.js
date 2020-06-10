@@ -22,6 +22,7 @@ export default function Play({
   setVideoState,
 }) {
   const [removeBtn, setRemoveBtn] = useState(false);
+  const [count, setCount] = useState(0);
 
   const onTap = () => {
     setVideoState((prev) => ({ ...prev, playing: true, display: true }));
@@ -34,8 +35,15 @@ export default function Play({
     }
   };
 
-  const playPause = () =>
-    display && setVideoState((prev) => ({ ...prev, playing: !prev.playing }));
+  const playPause = () => {
+    display && setCount((prev) => prev + 1);
+
+    if (count >= 1) {
+      setVideoState((prev) => {
+        return { ...prev, playing: !prev.playing };
+      });
+    }
+  };
 
   return (
     <Wrapper onClick={playPause}>
