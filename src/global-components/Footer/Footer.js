@@ -6,6 +6,8 @@ import { Container } from "../../style/Mixins";
 // =========================
 
 const Bar = styled.div`
+  position: relative;
+  z-index: -1;
   height: 1px;
   background: ${({ theme: { gray } }) => gray[0]};
   opacity: 0.6;

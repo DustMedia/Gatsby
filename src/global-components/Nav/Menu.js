@@ -85,8 +85,8 @@ export default function Menu() {
 }
 
 const framerMenu = {
-  open: { opacity: 1, y: 0 },
-  closed: { opacity: 0, y: "-100%", transition: { delay: 0.1 } },
+  open: { y: 0, transition: { damping: 5 } },
+  closed: { y: "-100%", transition: { delay: 0.1 } },
 };
 
 const framerItems = {

@@ -1,15 +1,23 @@
 // Components==============
+import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 // =========================
 
-const Svg = styled.svg`
+const Svg = styled(motion.svg)`
   width: 130px;
 `;
 
 export default function Logo() {
   return (
-    <Svg viewBox="0 0 201 159" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <Svg
+      viewBox="0 0 201 159"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    >
       <path
         d="M0.900391 0.5H34.9255V158.01H0.900391V0.5Z"
         fill="#E1C598"

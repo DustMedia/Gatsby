@@ -16,8 +16,9 @@ export const Variables = {
     "rgba(54, 54, 54, 1)",
     "rgba(33, 33, 33, 1)",
     "rgba(17, 17, 17, 1)",
+    "rgba(0, 0, 0, 1)",
   ],
-  primary: "#E1C598",
+  primary: "rgba(225, 197, 152, 1)",
   shadow: {
     xs: "0 1px 3px rgba(0, 0, 0, 0.1)",
     s: "0 1px 3px rgba(0, 0, 0, 0.2)",

@@ -10,9 +10,12 @@ import Video from "../macro-home/Video";
 const Wrapper = styled.div`
   height: 100vh;
   width: 100vw;
+  position: relative;
 `;
 
 export default function Index({ data }) {
+  const video = data?.sanityVideos?.video;
+
   return (
     <>
       <Head
@@ -22,7 +25,7 @@ export default function Index({ data }) {
       />
       <Wrapper>
         <Animation />
-        <Video />
+        <Video video={video} />
       </Wrapper>
     </>
   );
@@ -33,6 +36,10 @@ export const query = graphql`
     sanitySeo(page: { eq: "Home" }) {
       description
       keywords
+    }
+
+    sanityVideos(title: { eq: "Home" }) {
+      video
     }
   }
 `;
