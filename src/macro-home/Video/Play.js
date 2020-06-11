@@ -4,25 +4,25 @@ import React, { useState } from "react";
 import styled from "styled-components";
 // =========================
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 export default function Play({
-  display,
+  videoState,
   isTouch,
   performStateChange,
   setVideoState,
 }) {
   const [removeBtn, setRemoveBtn] = useState(false);
   const [count, setCount] = useState(0);
+  const { display } = videoState;
 
   const onTap = () => {
     setVideoState((prev) => ({ ...prev, playing: true, display: true }));
@@ -46,7 +46,12 @@ export default function Play({
   };
 
   return (
-    <Wrapper onClick={playPause}>
+    <Wrapper
+      onClick={playPause}
+      variants={framerPlay}
+      animate="mount"
+      initial="unMount"
+    >
       <motion.svg
         width="50"
         viewBox="0 0 58 65"
@@ -70,3 +75,12 @@ export default function Play({
     </Wrapper>
   );
 }
+
+const framerPlay = {
+  mount: {
+    opacity: 1,
+    display: "flex",
+    transition: { delay: 2.5 },
+  },
+  unMount: { opacity: 0, display: "none" },
+};

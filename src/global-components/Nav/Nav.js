@@ -16,6 +16,7 @@ const Wrapper = styled(Container)`
   align-items: center;
   height: 70px;
   z-index: 100;
+  pointer-events: none;
 `;
 
 export default function Nav() {
@@ -37,10 +38,14 @@ export default function Nav() {
   return (
     <>
       <Wrapper>
-        <Link to="/" onClick={() => isToggled && toggle}>
-          <img src={logo} alt="Dust Media" />
-        </Link>
-        <Burger />
+        <div style={{ pointerEvents: "all" }}>
+          <Link to="/" onClick={() => isToggled && toggle}>
+            <img src={logo} alt="Dust Media" />
+          </Link>
+        </div>
+        <div style={{ pointerEvents: "all" }}>
+          <Burger />
+        </div>
       </Wrapper>
       <AnimatePresence>{isToggled && <Menu />}</AnimatePresence>
     </>

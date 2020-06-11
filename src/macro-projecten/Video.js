@@ -1,25 +1,31 @@
 // Components==============
-import React, { useRef } from "react";
-import { findDOMNode } from "react-dom";
+import React from "react";
 import ReactPlayer from "react-player/vimeo";
-import screenfull from "screenfull";
 import styled from "styled-components";
 
 // =========================
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+`;
 
-export default function Video({ video }) {
-  const ref = useRef();
-
-  const handleClickFullscreen = () => {
-    screenfull.request(findDOMNode(ref.current));
-  };
-
+export default function Video({ video, reference }) {
   return (
     <Wrapper>
-      <ReactPlayer url={video} ref={ref} />
-      <button onClick={handleClickFullscreen}>Fullscreen</button>;
+      <ReactPlayer
+        className={video}
+        url={video}
+        ref={reference}
+        controls={true}
+        width="100%"
+        height="100%"
+        playing={true}
+      />
     </Wrapper>
   );
 }
