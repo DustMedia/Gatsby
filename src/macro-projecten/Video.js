@@ -6,7 +6,7 @@ import styled from "styled-components";
 // =========================
 
 const Wrapper = styled.div`
-  z-index: 100;
+  z-index: 40;
   position: absolute;
   width: 100%;
   height: 100%;
