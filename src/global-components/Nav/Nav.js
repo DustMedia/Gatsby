@@ -9,14 +9,18 @@ import Burger from "./Burger";
 import Menu from "./Menu";
 // =========================
 
-const Wrapper = styled(Container)`
+const Wrapper = styled.div`
   position: fixed;
+  z-index: 100;
+  pointer-events: none;
+  width: 100%;
+`;
+
+const Flex = styled(Container)`
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  z-index: 100;
-  pointer-events: none;
 `;
 
 export default function Nav() {
@@ -38,14 +42,16 @@ export default function Nav() {
   return (
     <>
       <Wrapper>
-        <div style={{ pointerEvents: "all" }}>
-          <Link to="/" onClick={() => isToggled && toggle}>
-            <img src={logo} alt="Dust Media" />
-          </Link>
-        </div>
-        <div style={{ pointerEvents: "all" }}>
-          <Burger />
-        </div>
+        <Flex>
+          <div style={{ pointerEvents: "all" }}>
+            <Link to="/" onClick={() => isToggled && toggle}>
+              <img src={logo} alt="Dust Media" />
+            </Link>
+          </div>
+          <div style={{ pointerEvents: "all" }}>
+            <Burger />
+          </div>
+        </Flex>
       </Wrapper>
       <AnimatePresence>{isToggled && <Menu />}</AnimatePresence>
     </>

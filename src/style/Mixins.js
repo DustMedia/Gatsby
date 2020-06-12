@@ -13,13 +13,24 @@ export const Container = styled.div`
   }
 
   @media screen and (min-width: 1200px) {
-    padding: 0 12.5%;
+    padding: 0 9%;
   }
 
   @media screen and (min-width: 1600px) {
-    padding: 0 15%;
+    padding: 0 12%;
     max-width: 130rem;
   }
+`;
+
+// Button
+
+export const Button = styled.button`
+  background-color: ${({ theme: { primary } }) => primary};
+  color: black;
+  font-weight: ${({ theme: { fontWeight } }) => fontWeight.semiBold};
+  padding: ${({ theme: { spacing } }) => `${spacing[0]} ${spacing[4]}`};
+  display: inline-block;
+  border-radius: ${({ theme: { borderRadius } }) => borderRadius};
 `;
 
 // BlockStyling
@@ -27,14 +38,14 @@ export const Container = styled.div`
 export const BlockStyling = styled.div`
   p {
     margin-bottom: ${({ theme: { spacing } }) => spacing[3]};
-    line-height: 1.7;
+    line-height: 1.4;
     text-align: justify;
   }
 
   strong {
-    line-height: 1.6;
-    font-weight: ${({ theme: { fontWeight } }) => fontWeight.heavy};
-    ${({ theme: { fontSize } }) => fontSize.l}
+    line-height: 1.4;
+    font-weight: ${({ theme: { fontWeight } }) => fontWeight.bold};
+    ${({ theme: { fontSize } }) => fontSize.m}
   }
 
   blockquote::before {
