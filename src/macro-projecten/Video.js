@@ -13,10 +13,6 @@ const Wrapper = styled.div`
   top: 0;
   left: 0;
   overflow: hidden;
-  /* width: 100.1%;
-  height: 100.1%;
-  top: -0.05%;
-  left: -0.05%; */
 
   .video-player {
     height: 100%;
