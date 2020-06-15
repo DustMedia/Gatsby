@@ -45,7 +45,7 @@ export default function Contact({ content }) {
       <br />
       <a href={`mailto:${mail}`}>{mail}</a>
       <br />
-      <p style={{ marginBottom: "0.5em" }}>KVK: {kvk}</p>
+      <p style={{ marginBottom: "1em" }}>KVK: {kvk}</p>
       <Socials />
     </Wrapper>
   );

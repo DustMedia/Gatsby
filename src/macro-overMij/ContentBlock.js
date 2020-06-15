@@ -32,24 +32,6 @@ const Content = styled(motion.div)`
   }
 `;
 
-const Gradient = styled.div`
-  @media screen and (min-width: ${({ theme: { breakPoint } }) =>
-      breakPoint.desktopM}) {
-    background: linear-gradient(
-      105.93deg,
-      #111111 42.17%,
-      rgba(17, 17, 17, 0.513465) 74.88%,
-      rgba(17, 17, 17, 0) 80.33%
-    );
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 75vw;
-    height: 100vh;
-    z-index: -1;
-  }
-`;
-
 export default function ContentBlock({ title, about }) {
   return (
     <Wrapper>
@@ -61,7 +43,6 @@ export default function ContentBlock({ title, about }) {
           </BlockStyling>
         </motion.div>
       </Content>
-      <Gradient />
     </Wrapper>
   );
 }

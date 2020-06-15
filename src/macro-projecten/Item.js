@@ -1,9 +1,8 @@
 // Components==============
 import { motion } from "framer-motion";
 import Img from "gatsby-image";
-import { useHover, useMediaQ } from "hooks-lib";
+import { useHover } from "hooks-lib";
 import React, { useRef, useState } from "react";
-import { findDOMNode } from "react-dom";
 import styled from "styled-components";
 import { Container } from "../style/Mixins";
 import Video from "./Video";
@@ -38,26 +37,16 @@ export default function Item({ video, title, image }) {
   const [displayVideo, setDisplayVideo] = useState(false);
 
   const reference = useRef();
-  const bigScreen = useMediaQ("min", 1200);
-
-  const handleClickFullscreen = () => {
-    const ref = findDOMNode(reference.current);
-    ref.requestFullscreen();
-  };
 
   const onTap = () => {
     setDisplayVideo(true);
-
-    if (bigScreen) {
-      handleClickFullscreen();
-    }
   };
 
   return (
     <>
       <Wrapper
         {...watch}
-        animate={hover ? "hover" : "still"}
+        animate={hover || displayVideo ? "hover" : "still"}
         initial="still"
         variants={framerWrapper}
         onTap={onTap}

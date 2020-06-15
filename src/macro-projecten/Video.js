@@ -12,13 +12,26 @@ const Wrapper = styled.div`
   height: 100%;
   top: 0;
   left: 0;
+  overflow: hidden;
+  /* width: 100.1%;
+  height: 100.1%;
+  top: -0.05%;
+  left: -0.05%; */
+
+  .video-player {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(1.005);
+  }
 `;
 
 export default function Video({ video, reference }) {
   return (
     <Wrapper>
       <ReactPlayer
-        className={video}
+        className={`${video} video-player`}
         url={video}
         ref={reference}
         controls={true}

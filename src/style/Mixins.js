@@ -39,7 +39,6 @@ export const BlockStyling = styled.div`
   p {
     margin-bottom: ${({ theme: { spacing } }) => spacing[3]};
     line-height: 1.4;
-    text-align: justify;
   }
 
   strong {
