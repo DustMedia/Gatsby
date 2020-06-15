@@ -12,17 +12,15 @@ const Wrapper = styled(motion.div)`
   left: 0;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
+
+  svg {
+    pointer-events: all;
+  }
 `;
 
-export default function Play({
-  videoState,
-  isTouch,
-  performStateChange,
-  setVideoState,
-}) {
+export default function Play({ isTouch, performStateChange, setVideoState }) {
   const [removeBtn, setRemoveBtn] = useState(false);
-  const [count, setCount] = useState(0);
-  const { display } = videoState;
 
   const play = () => {
     setVideoState((prev) => ({ ...prev, playing: true, display: true }));
@@ -34,7 +32,6 @@ export default function Play({
       performStateChange();
       setTimeout(() => {
         play();
-        setCount(1);
       }, 100);
     } else {
       play();
@@ -47,23 +44,8 @@ export default function Play({
     }
   };
 
-  const playPause = () => {
-    display && setCount((prev) => prev + 1);
-
-    if (count >= 1) {
-      setVideoState((prev) => {
-        return { ...prev, playing: !prev.playing };
-      });
-    }
-  };
-
   return (
-    <Wrapper
-      onClick={playPause}
-      variants={framerPlay}
-      animate="mount"
-      initial="unMount"
-    >
+    <Wrapper variants={framerPlay} animate="mount" initial="unMount">
       <motion.svg
         width="50"
         viewBox="0 0 58 65"
