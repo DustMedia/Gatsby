@@ -1,6 +1,6 @@
 // Components==============
 import { useMediaQ } from "hooks-lib";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Play from "./Play";
 import ReactPlayer from "./ReactPlayer";
 // =========================
@@ -32,15 +32,6 @@ export default function Video({ video }) {
       }));
     }, 100);
   };
-
-  useEffect(() => {
-    if (isTouch) {
-      setTimeout(() => {
-        performStateChange();
-      }, 3000);
-    }
-    // eslint-disable-next-line
-  }, []);
 
   return (
     <>

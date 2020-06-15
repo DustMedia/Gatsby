@@ -24,9 +24,21 @@ export default function Play({
   const [count, setCount] = useState(0);
   const { display } = videoState;
 
-  const onTap = () => {
+  const play = () => {
     setVideoState((prev) => ({ ...prev, playing: true, display: true }));
     setRemoveBtn(true);
+  };
+
+  const onTap = () => {
+    if (isTouch) {
+      performStateChange();
+      setTimeout(() => {
+        play();
+        setCount(1);
+      }, 100);
+    } else {
+      play();
+    }
   };
 
   const onHover = () => {
