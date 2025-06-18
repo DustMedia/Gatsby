@@ -26,12 +26,12 @@ const Bar = styled(motion.div)`
 `;
 
 export default function Burger() {
-  const { isToggled, toggle } = useContext(NavContext);
+  const { menuIsOpen, setMenuIsOpen } = useContext(NavContext);
 
   return (
-    <Wrapper onClick={toggle}>
+    <Wrapper onClick={() => setMenuIsOpen((prev) => !prev)}>
       <Bar
-        animate={isToggled ? `menuOpen` : `menuClosed`}
+        animate={menuIsOpen ? `menuOpen` : `menuClosed`}
         variants={{
           menuClosed: {
             rotate: 0,
@@ -46,7 +46,7 @@ export default function Burger() {
         initial={false}
       />
       <Bar
-        animate={isToggled ? `menuOpen` : `menuClosed`}
+        animate={menuIsOpen ? `menuOpen` : `menuClosed`}
         variants={{
           menuClosed: {
             x: 0,
@@ -62,7 +62,7 @@ export default function Burger() {
         transition={{ damping: 10, duration: 0.1 }}
       />
       <Bar
-        animate={isToggled ? `menuOpen` : `menuClosed`}
+        animate={menuIsOpen ? `menuOpen` : `menuClosed`}
         variants={{
           menuClosed: {
             rotate: 0,

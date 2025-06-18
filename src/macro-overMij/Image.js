@@ -1,5 +1,5 @@
 // Components==============
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
 // =========================
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 export default function Image({ image }) {
   return (
     <Wrapper>
-      <Img fluid={image} alt="Colin Dust" />
+      <GatsbyImage image={image} alt="Colin Dust" />
     </Wrapper>
   );
 }

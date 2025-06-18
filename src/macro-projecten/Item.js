@@ -1,11 +1,11 @@
 // Components==============
 import { motion } from "framer-motion";
-import Img from "gatsby-image";
-import { useHover } from "hooks-lib";
+import { GatsbyImage } from "gatsby-plugin-image";
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { Container } from "../style/Mixins";
 import Video from "./Video";
+import { useHover } from "../hooks/useHover";
 // =========================
 
 const Wrapper = styled(motion.div)`
@@ -26,7 +26,7 @@ const Text = styled(motion.p)`
   width: 100%;
 `;
 
-const Image = styled(Img)`
+const Image = styled(GatsbyImage)`
   position: relative;
   width: 100%;
   z-index: -1;
@@ -56,7 +56,7 @@ export default function Item({ video, title, image }) {
             {title}
           </Text>
         </Container>
-        <Image fluid={image} alt={title} />
+        <Image image={image} alt={title} />
         {displayVideo && <Video reference={reference} video={video} />}
       </Wrapper>
     </>

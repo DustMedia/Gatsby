@@ -37,14 +37,14 @@ export default function Nav() {
   `);
 
   const logo = data.sanityDustMedia?.logo?.asset?.url;
-  const { toggle, isToggled } = useContext(NavContext);
+  const { menuIsOpen, setMenuIsOpen } = useContext(NavContext);
 
   return (
     <>
       <Wrapper>
         <Flex>
           <div style={{ pointerEvents: "all" }}>
-            <Link to="/" onClick={() => isToggled && toggle}>
+            <Link to="/" onClick={() => menuIsOpen && setMenuIsOpen(false)}>
               <img src={logo} alt="Dust Media" />
             </Link>
           </div>
@@ -53,7 +53,7 @@ export default function Nav() {
           </div>
         </Flex>
       </Wrapper>
-      <AnimatePresence>{isToggled && <Menu />}</AnimatePresence>
+      <AnimatePresence>{menuIsOpen && <Menu />}</AnimatePresence>
     </>
   );
 }

@@ -40,11 +40,15 @@ const Items = styled(motion.ul)`
 `;
 
 const A = ({ children, to }) => {
-  const { toggle } = useContext(NavContext);
+  const { setMenuIsOpen } = useContext(NavContext);
 
   return (
     <motion.li variants={framerItem} whileHover={{ x: 10 }}>
-      <Link to={to} onClick={toggle} activeClassName="active">
+      <Link
+        to={to}
+        onClick={() => setMenuIsOpen(false)}
+        activeClassName="active"
+      >
         {children}
       </Link>
     </motion.li>

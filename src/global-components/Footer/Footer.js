@@ -37,7 +37,9 @@ export default function Footer() {
       <FooterWrap>
         <Bar />
         <Socials />
-        <P>© 2020 Dust Media | Alle rechten voorbehouden.</P>
+        <P>
+          © {new Date().getFullYear()} Dust Media | Alle rechten voorbehouden.
+        </P>
       </FooterWrap>
     </Container>
   );

@@ -1,9 +1,9 @@
 // Components==============
-import { useMediaQ } from "hooks-lib";
 import React, { useEffect, useRef, useState } from "react";
 import { findDOMNode } from "react-dom";
 import Play from "./Play";
 import ReactPlayer from "./ReactPlayer";
+import { useMediaQ } from "../../hooks/useMediaQ";
 // =========================
 
 export default function Video({ video }) {

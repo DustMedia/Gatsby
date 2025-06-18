@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 
 export default function Grid({ videos }) {
   const items = videos.map((e, index) => {
-    const image = e?.image?.asset?.fluid;
+    const image = e?.image?.asset?.gatsbyImageData;
     const title = e?.title;
     const video = e?.video;
 

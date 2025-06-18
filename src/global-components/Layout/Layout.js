@@ -1,7 +1,5 @@
 // Components==============
-import { useToggle } from "hooks-lib";
-import React, { createContext } from "react";
-import { hot } from "react-hot-loader/root";
+import React, { createContext, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import GlobalStyles from "../../style/GlobalStyles";
 import { Variables } from "../../style/themes";
@@ -16,13 +14,13 @@ const Content = styled.div`
 
 export const NavContext = createContext();
 
-function Layout({ children }) {
-  const [isToggled, , toggle] = useToggle(false);
+export default function Layout({ children }) {
+  const [menuIsOpen, setMenuIsOpen] = useState();
 
   return (
     <ThemeProvider theme={Variables}>
       <IEWarning />
-      <NavContext.Provider value={{ isToggled, toggle }}>
+      <NavContext.Provider value={{ menuIsOpen, setMenuIsOpen }}>
         <Nav />
         <Content>{children}</Content>
         <Footer />
@@ -31,5 +29,3 @@ function Layout({ children }) {
     </ThemeProvider>
   );
 }
-
-export default hot(Layout);

@@ -8,7 +8,7 @@ import Content from "../macro-overMij";
 export default function Overmij({ data }) {
   const title = data.sanityDustMedia?._rawAbout?.title;
   const about = data.sanityDustMedia?._rawAbout?.about;
-  const image = data.sanityDustMedia?.about?.image?.asset?.fluid;
+  const image = data.sanityDustMedia?.about?.image?.asset?.gatsbyImageData;
 
   return (
     <>
@@ -32,9 +32,7 @@ export const query = graphql`
       about {
         image {
           asset {
-            fluid(maxWidth: 2000) {
-              ...GatsbySanityImageFluid
-            }
+            gatsbyImageData(width: 2000, formats: [AUTO, WEBP, AVIF])
           }
         }
       }

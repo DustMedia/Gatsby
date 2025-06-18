@@ -30,9 +30,7 @@ export const query = graphql`
         video
         image {
           asset {
-            fluid(maxWidth: 600) {
-              ...GatsbySanityImageFluid
-            }
+            gatsbyImageData(width: 600, formats: [AUTO, WEBP, AVIF])
           }
         }
       }
