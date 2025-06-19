@@ -1,5 +1,5 @@
 // Components==============
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Item from "./Item";
 // =========================
@@ -19,12 +19,23 @@ const Wrapper = styled.div`
 `;
 
 export default function Grid({ videos }) {
+  const [activeVideo, setActiveVideo] = useState("");
+
   const items = videos.map((e, index) => {
     const image = e?.image?.asset?.gatsbyImageData;
     const title = e?.title;
     const video = e?.video;
 
-    return <Item image={image} title={title} video={video} key={index} />;
+    return (
+      <Item
+        image={image}
+        title={title}
+        video={video}
+        key={index}
+        activeVideo={activeVideo}
+        setActiveVideo={setActiveVideo}
+      />
+    );
   });
 
   return <Wrapper>{items}</Wrapper>;

@@ -32,21 +32,27 @@ const Image = styled(GatsbyImage)`
   z-index: -1;
 `;
 
-export default function Item({ video, title, image }) {
+export default function Item({
+  video,
+  title,
+  image,
+  activeVideo,
+  setActiveVideo,
+}) {
   const [hover, watch] = useHover();
-  const [displayVideo, setDisplayVideo] = useState(false);
+  const isActive = title === activeVideo;
 
   const reference = useRef();
 
   const onTap = () => {
-    setDisplayVideo(true);
+    setActiveVideo(title);
   };
 
   return (
     <>
       <Wrapper
         {...watch}
-        animate={hover || displayVideo ? "hover" : "still"}
+        animate={hover || isActive ? "hover" : "still"}
         initial="still"
         variants={framerWrapper}
         onTap={onTap}
@@ -57,7 +63,7 @@ export default function Item({ video, title, image }) {
           </Text>
         </Container>
         <Image image={image} alt={title} />
-        {displayVideo && <Video reference={reference} video={video} />}
+        <Video reference={reference} video={video} active={isActive} />
       </Wrapper>
     </>
   );

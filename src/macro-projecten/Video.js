@@ -1,5 +1,5 @@
 // Components==============
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player/vimeo";
 import styled from "styled-components";
 
@@ -13,6 +13,8 @@ const Wrapper = styled.div`
   top: 0;
   left: 0;
   overflow: hidden;
+  opacity: ${({ active }) => (active === true ? "1" : "0")};
+  pointer-events: ${({ active }) => (active === true ? "all" : "none")};
 
   .video-player {
     height: 100%;
@@ -23,9 +25,15 @@ const Wrapper = styled.div`
   }
 `;
 
-export default function Video({ video, reference }) {
+export default function Video({ video, reference, active }) {
+  const [playing, setPlaying] = useState(false);
+
+  useEffect(() => {
+    setPlaying(active);
+  }, [active]);
+
   return (
-    <Wrapper>
+    <Wrapper active={active}>
       <ReactPlayer
         className={`${video} video-player`}
         url={video}
@@ -33,7 +41,9 @@ export default function Video({ video, reference }) {
         controls={true}
         width="100%"
         height="100%"
-        playing={true}
+        playing={playing}
+        volume={1}
+        muted={false}
       />
     </Wrapper>
   );
